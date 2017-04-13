@@ -8,6 +8,29 @@ public class BankSystem {
     
     public static void main(String[] args) {
         
+        /* Chat server code in main method */
+        /*
+        
+            private static final int PORT = 5050;
+        
+            in main:
+                System.out.println("The chat server is running.");
+                ServerSocket listener = new ServerSocket(PORT);
+                try {
+                    while (true) {
+                        ServerHandler handler = new ServerHandler(names, writers, listener.accept());
+                        handler.start();
+
+                    }
+                } finally {
+                    listener.close();
+                }
+        
+        
+        
+        */
+        
+        
         Account a = new Account("xxxxxxxx", "xxxxxxxx");
         a.addBalance(100);
         User user = new User("user");
