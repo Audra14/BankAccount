@@ -35,11 +35,12 @@ public class ServerHandler extends Thread {
                 OutputStream out = socket.getOutputStream();
                 DataOutputStream output = new DataOutputStream(out);
                 String message = input.readUTF();
-                if(message.charAt(0) == 0){ //If Balance
+                char specifier = message.charAt(0);
+                if(specifier == 0){ //If Balance
                     output.writeUTF("Balance");
-                } else if(message.charAt(0) == 1){ //If Deposit
+                } else if(specifier == 1){ //If Deposit
                     output.writeUTF("Deposit Successful");
-                } else if(message.charAt(0) == 2){ //If Withdrawal
+                } else if(specifier == 2){ //If Withdrawal
                     output.writeUTF("Withdrawal Successful");
                 } else { //If transfer
                     output.writeUTF("Transfer Successful");
