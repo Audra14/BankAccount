@@ -11,7 +11,7 @@ public class BankSystem {
     
     private static final int PORT = 5050;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
 
         System.out.println("The chat server is running.");
@@ -26,11 +26,7 @@ public class BankSystem {
             listener.close();
         }
     }
-        
-        
-        
-        
-        
+
         /*Account a = new Account("xxxxxxxx", "xxxxxxxx");
         a.addBalance(100);
         User user = new User("user");
@@ -50,6 +46,6 @@ public class BankSystem {
         }catch(InterruptedException e){
 
         }
-        balInq.start(); */
-    }
+        balInq.start(); 
+    }*/
 }
