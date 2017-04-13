@@ -3,9 +3,6 @@ package banksystem;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ljf5124 on 1/15/2017.
- */
 public class Account {
 
     private List<User> users;

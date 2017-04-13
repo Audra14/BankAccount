@@ -1,8 +1,6 @@
 package banksystem;
 
-/**
- * Created by ljf5124 on 1/15/2017.
- */
+
 public abstract class Transaction extends Thread{
 
     private User user;

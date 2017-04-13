@@ -1,9 +1,5 @@
 package banksystem;
 
-/**
- *
- * @author ljf5124
- */
 public class Withdrawal extends Transaction{
     
     private double wAmount;

@@ -1,9 +1,6 @@
 package banksystem;
 
-/**
- *
- * @author ljf5124
- */
+
 public class Transfer extends Transaction{
     
     private double tAmount;

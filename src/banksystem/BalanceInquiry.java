@@ -5,10 +5,6 @@
  */
 package banksystem;
 
-/**
- *
- * @author ljf5124
- */
 public class BalanceInquiry extends Transaction{
     
     public BalanceInquiry(User newUser, Account newAccount){
