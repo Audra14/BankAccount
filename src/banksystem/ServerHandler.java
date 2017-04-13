@@ -48,15 +48,19 @@ public class ServerHandler extends Thread {
                 if(specifier == '0'){ //If Balance
                     output.writeUTF(Double.toString(a.getBalance()));
                 } else if(specifier == '1'){ //If Deposit
-                    amount = Double.parseDouble(message.substring(4));
+                    amount = Double.parseDouble(message.substring(7, message.length()));
                     t = new Deposit(u, a, amount);
+                    t.start();
                     output.writeUTF("Deposit Successful. New balance: " + a.getBalance());
                 } else if(specifier == '2'){ //If Withdrawal
-                    amount = Double.parseDouble(message.substring(4));
+                    amount = Double.parseDouble(message.substring(7, message.length()));
                     t = new Withdrawal(u, a, amount);
-                    amount = Double.parseDouble(message.substring(4));
+                    t.start();
                     output.writeUTF("Withdrawal Successful. New balance: " + a.getBalance());
                 } else { //If transfer
+                    String newAccount = message.substring(7, 10);
+                    amount = Double.parseDouble(message.substring(12, message.length()));
+                    t = new Transfer(u, a, amount, newAccount);
                     output.writeUTF("Transfer Successful");
                 }
             }
