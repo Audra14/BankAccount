@@ -37,18 +37,25 @@ public class ServerHandler extends Thread {
                 String message = input.readUTF();
                 System.out.println(message);
                 String accountNumber = message.substring(0, 3);
+                double amount;
+                Transaction t;
                 //Account a = findAccount(accountNumber);
                 //Temporary fake account:
-                Account a = new Account("0000", "1111");
+                Account a = new Account(accountNumber, "1111");
+                User u = new User("name");
                 a.addBalance(100);
                 char specifier = message.charAt(5);
                 if(specifier == '0'){ //If Balance
                     output.writeUTF(Double.toString(a.getBalance()));
                 } else if(specifier == '1'){ //If Deposit
-                    //
-                    output.writeUTF("Deposit Successful");
+                    amount = Double.parseDouble(message.substring(4));
+                    t = new Deposit(u, a, amount);
+                    output.writeUTF("Deposit Successful. New balance: " + a.getBalance());
                 } else if(specifier == '2'){ //If Withdrawal
-                    output.writeUTF("Withdrawal Successful");
+                    amount = Double.parseDouble(message.substring(4));
+                    t = new Withdrawal(u, a, amount);
+                    amount = Double.parseDouble(message.substring(4));
+                    output.writeUTF("Withdrawal Successful. New balance: " + a.getBalance());
                 } else { //If transfer
                     output.writeUTF("Transfer Successful");
                 }
