@@ -38,10 +38,12 @@ public class ServerHandler extends Thread {
                 System.out.println(message);
                 String accountNumber = message.substring(0, 3);
                 //Account a = findAccount(accountNumber);
+                //Temporary fake account:
+                Account a = new Account("0000", "1111");
+                a.addBalance(100);
                 char specifier = message.charAt(5);
                 if(specifier == '0'){ //If Balance
-                    //a.getBalance();
-                    output.writeUTF("Balance");
+                    output.writeUTF(Double.toString(a.getBalance()));
                 } else if(specifier == '1'){ //If Deposit
                     //
                     output.writeUTF("Deposit Successful");
