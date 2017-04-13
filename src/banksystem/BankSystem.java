@@ -9,12 +9,12 @@ import java.io.*;
  */
 public class BankSystem {
     
-    private static final int PORT = 5050;
+    private static final int PORT = 6666;
     
     public static void main(String[] args) throws IOException {
         
 
-        System.out.println("The chat server is running.");
+        System.out.println("The bank server is running.");
         ServerSocket listener = new ServerSocket(PORT);
         try {
             while (true) {
