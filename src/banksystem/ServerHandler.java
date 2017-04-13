@@ -36,10 +36,14 @@ public class ServerHandler extends Thread {
                 DataOutputStream output = new DataOutputStream(out);
                 String message = input.readUTF();
                 System.out.println(message);
-                char specifier = message.charAt(0);
+                String accountNumber = message.substring(0, 3);
+                //Account a = findAccount(accountNumber);
+                char specifier = message.charAt(5);
                 if(specifier == '0'){ //If Balance
+                    //a.getBalance();
                     output.writeUTF("Balance");
                 } else if(specifier == '1'){ //If Deposit
+                    //
                     output.writeUTF("Deposit Successful");
                 } else if(specifier == '2'){ //If Withdrawal
                     output.writeUTF("Withdrawal Successful");
@@ -48,7 +52,7 @@ public class ServerHandler extends Thread {
                 }
             }
         } catch(IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 }
