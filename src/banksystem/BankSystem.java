@@ -28,6 +28,7 @@ public class BankSystem {
     }
     
     public static void makeDummyData(){
+        System.out.println("Making dummy data");
         Account a1 = new Account("1111");
         a1.addBalance(100);
         Account a2 = new Account("2222");
