@@ -5,9 +5,9 @@ public class Transfer extends Transaction{
     
     private double tAmount;
     
-    private String receivingAccount;
+    private Account receivingAccount;
     
-    public Transfer(Account newAccount, double newTAmount, String rAccount){
+    public Transfer(Account newAccount, double newTAmount, Account rAccount){
         super(newAccount);
         this.tAmount = newTAmount;
         this.receivingAccount = rAccount;
@@ -15,7 +15,7 @@ public class Transfer extends Transaction{
     
     public void run(){
         double amount = this.tAmount;
-        String receivingAccnt = this.receivingAccount;
+        Account receivingAccnt = this.receivingAccount;
         Account curAccount = this.getAccount();
         long curId = curAccount.getId();
         double startingBal  = curAccount.getBalance();

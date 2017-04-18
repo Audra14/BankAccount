@@ -15,10 +15,9 @@ public class Account {
     
     private long id;
 
-    public Account(String newAccountNumber, String newRoutingNumber){
+    public Account(String newAccountNumber){
         this.id = (long)(Math.random() * 100) + 1;
         this.accountNumber = newAccountNumber;
-        this.routingNumber = newRoutingNumber;
     }
 
 
