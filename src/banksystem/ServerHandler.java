@@ -36,6 +36,16 @@ public class ServerHandler extends Thread {
                 OutputStream out = socket.getOutputStream();
                 DataOutputStream output = new DataOutputStream(out);
                 
+                while(true){
+                    String pin = input.readUTF();
+                    if(checkPin(pin)){
+                        output.write(1);
+                        break;
+                    } else {
+                        output.write(0);
+                    }
+                }
+                
                 String message = input.readUTF();
                 System.out.println(message);
                 String accountNumber = message.substring(0, 3);
@@ -79,5 +89,15 @@ public class ServerHandler extends Thread {
         } catch(IOException e) {
             System.out.println(e);
         }
+    }
+    
+    public boolean checkPin(String pin){
+        ArrayList<Account> list = AccountList.getAccountList().list;
+        for(Account account: list){
+            if(account.getAccountNumber().equals(pin)){
+                return true;
+            }
+        }
+        return false;
     }
 }
