@@ -39,10 +39,10 @@ public class ServerHandler extends Thread {
                 while(true){
                     String pin = input.readUTF();
                     if(checkPin(pin)){
-                        output.write(1);
+                        output.writeUTF("1");
                         break;
                     } else {
-                        output.write(0);
+                        output.writeUTF("0");
                     }
                 }
                 
