@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class AccountList {
     
     private static AccountList singleton = new AccountList();
-    private ArrayList<Account> list;
+    public ArrayList<Account> list;
     
     private AccountList(){
         importList();
@@ -46,7 +46,7 @@ public class AccountList {
       }
     }
     
-    private void makeList(){ //called to make a new List if one doesn't exist yet, or write the current list to a file if it does.
+    public void makeList(){ //called to make a new List if one doesn't exist yet, or write the current list to a file if it does.
         if(this.list == null){
             this.list = new ArrayList<Account>();
             System.out.println("New List made.");
