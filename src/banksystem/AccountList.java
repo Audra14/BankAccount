@@ -15,25 +15,27 @@ import java.util.ArrayList;
  */
 public class AccountList {
     
-    private static AccountList singleton = new AccountList();
-    public static Accounts accounts;
+    private AccountList singleton;
+    public Accounts accounts;
     
-    private AccountList(){
+    public AccountList(){
+        System.out.println("hello");
         importList();
     }
     
-    public static AccountList getAccountList(){
+    public AccountList getAccountList(){
         return singleton;
     }
     
-    private static void importList(){ //called when class is compiled to import the list if the data is saved, or call makeList() if it isn't yet.
-        ArrayList<Account> newList = null;
+    private void importList(){ //called when class is compiled to import the list if the data is saved, or call makeList() if it isn't yet.
+        Accounts newList = null;
       try {
          FileInputStream fileIn = new FileInputStream("src/accountlist.ser");
          ObjectInputStream in = new ObjectInputStream(fileIn);
-         newList = (ArrayList<Account>) in.readObject();
+         newList = (Accounts) in.readObject();
          in.close();
          fileIn.close();
+         this.accounts = newList;
       }catch(FileNotFoundException f){
           makeList();
       }catch(IOException i) {
@@ -46,7 +48,7 @@ public class AccountList {
       }
     }
     
-    public static void makeList(){ //called to make a new List if one doesn't exist yet, or write the current list to a file if it does.
+    public void makeList(){ //called to make a new List if one doesn't exist yet, or write the current list to a file if it does.
         if(accounts == null){
             accounts = new Accounts();
             System.out.println("New List made.");

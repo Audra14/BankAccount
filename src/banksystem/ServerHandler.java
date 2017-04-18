@@ -23,8 +23,11 @@ public class ServerHandler extends Thread {
     private DataInputStream in;
     private DataOutputStream out;
     
-    public ServerHandler(Socket socket) {
+    private AccountList list;
+    
+    public ServerHandler(Socket socket, AccountList list) {
         this.socket = socket;
+        this.list = list;
     }
 
     public void run() {
@@ -92,12 +95,13 @@ public class ServerHandler extends Thread {
     }
     
     public boolean checkPin(String pin){
-        ArrayList<Account> list = AccountList.getAccountList().accounts.list;
-        for(Account account: list){
+        ArrayList<Account> thisList = this.list.accounts.list;
+        for(Account account: thisList){
             if(account.getAccountNumber().equals(pin)){
                 return true;
             }
         }
         return false;
+    
     }
 }

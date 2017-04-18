@@ -6,11 +6,8 @@ import java.util.List;
 
 public class Account implements Serializable{
 
-    //private List<User> users;
-
     private String accountNumber;
 
-    private String routingNumber;
 
     private double balance;
     
@@ -26,9 +23,6 @@ public class Account implements Serializable{
         return this.accountNumber;
     }
 
-    public String getRoutingNumber(){
-        return this.routingNumber;
-    }
 
     public void addBalance(double toAdd){
         this.balance += toAdd;
