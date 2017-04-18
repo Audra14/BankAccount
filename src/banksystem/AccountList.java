@@ -49,6 +49,7 @@ public class AccountList {
     private void makeList(){ //called to make a new List if one doesn't exist yet, or write the current list to a file if it does.
         if(this.list == null){
             this.list = new ArrayList<Account>();
+            System.out.println("New List made.");
         }
         else{
             try {
@@ -57,7 +58,7 @@ public class AccountList {
                 out.writeObject(this.list);
                 out.close();
                 fileOut.close();
-                System.out.printf("Serialized data is saved in /tmp/accountlist.ser");
+                System.out.println("Serialized data is saved in /tmp/accountlist.ser");
             }catch(IOException i) {
                 i.printStackTrace();
             }
