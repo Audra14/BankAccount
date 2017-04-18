@@ -35,9 +35,9 @@ public class BankSystem {
         a2.addBalance(200);
         Account a3 = new Account("3333");
         a3.addBalance(300);
-        AccountList.getAccountList().list.add(a1);
-        AccountList.getAccountList().list.add(a2);
-        AccountList.getAccountList().list.add(a3);
+        AccountList.getAccountList().accounts.list.add(a1);
+        AccountList.getAccountList().accounts.list.add(a2);
+        AccountList.getAccountList().accounts.list.add(a3);
         AccountList.makeList();
     }
 
