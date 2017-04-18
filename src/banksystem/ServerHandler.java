@@ -92,7 +92,7 @@ public class ServerHandler extends Thread {
     }
     
     public boolean checkPin(String pin){
-        ArrayList<Account> list = AccountList.getAccountList().list;
+        ArrayList<Account> list = AccountList.getAccountList().accounts.list;
         for(Account account: list){
             if(account.getAccountNumber().equals(pin)){
                 return true;
