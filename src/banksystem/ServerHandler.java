@@ -43,7 +43,7 @@ public class ServerHandler extends Thread {
                 Transaction t;
                 //Account a = findAccount(accountNumber);
                 //Temporary fake account:
-                Account a = new Account(accountNumber, "1111");
+                Account a = new Account(accountNumber);
                 
                 a.addBalance(100);
                 char specifier = message.charAt(5);
@@ -68,7 +68,7 @@ public class ServerHandler extends Thread {
                     
                 } else { //If transfer
                     
-                    String newAccount = message.substring(7, 10);
+                    Account newAccount = new Account(message.substring(7, 10));
                     amount = Double.parseDouble(message.substring(12, message.length()));
                     t = new Transfer(a, amount, newAccount);
                     t.start();
