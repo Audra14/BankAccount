@@ -29,7 +29,7 @@ public class AccountList {
     private static void importList(){ //called when class is compiled to import the list if the data is saved, or call makeList() if it isn't yet.
         ArrayList<Account> newList = null;
       try {
-         FileInputStream fileIn = new FileInputStream("/accountlist.ser");
+         FileInputStream fileIn = new FileInputStream("src/accountlist.ser");
          ObjectInputStream in = new ObjectInputStream(fileIn);
          newList = (ArrayList<Account>) in.readObject();
          in.close();
@@ -54,12 +54,12 @@ public class AccountList {
         else{
             System.out.println("Saving data");
             try {
-                FileOutputStream fileOut = new FileOutputStream("/accountlist.ser");
+                FileOutputStream fileOut = new FileOutputStream("src/accountlist.ser");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 out.writeObject(list);
                 out.close();
                 fileOut.close();
-                System.out.println("Serialized data is saved in /accountlist.ser");
+                System.out.println("Serialized data is saved in src/accountlist.ser");
             }catch(IOException i) {
                 i.printStackTrace();
             }
