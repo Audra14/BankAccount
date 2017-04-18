@@ -4,8 +4,8 @@ public class Withdrawal extends Transaction{
     
     private double wAmount;
     
-    public Withdrawal(User newUser, Account newAccount, double newWAmount){
-        super(newUser, newAccount);
+    public Withdrawal(Account newAccount, double newWAmount){
+        super(newAccount);
         this.wAmount = newWAmount;
     }
     
@@ -21,7 +21,7 @@ public class Withdrawal extends Transaction{
             }else{//If there are enough funds to be withdrawn
                 curAccount.subtractBalance(amount);
                 //curAccount.setBalance(startingBal - amount);
-                this.setLog("$" + amount + " withdrawn from account " + curId + " by user " + this.getUser().getId() + ". Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
+                this.setLog("$" + amount + " withdrawn from account " + curId + " by user ______ . Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
                 this.close();
             }
     }

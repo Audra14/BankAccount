@@ -4,8 +4,8 @@ public class Deposit extends Transaction{
     
     private double dAmount;
     
-    public Deposit(User newUser, Account newAccount, double newDAmount){
-        super(newUser, newAccount);
+    public Deposit(Account newAccount, double newDAmount){
+        super(newAccount);
         this.dAmount = newDAmount;
     }
     
@@ -17,7 +17,7 @@ public class Deposit extends Transaction{
         System.out.println("Beginning deposit to account " + curId + ".");
         //curAccount.setBalance(startingBal + amount);
         curAccount.addBalance(amount);
-        this.setLog("$" + amount + " deposited to account " + curId + " by user " + this.getUser().getId() + ". Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
+        this.setLog("$" + amount + " deposited to account " + curId + " by user ______. Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
         this.close();
     }
 }

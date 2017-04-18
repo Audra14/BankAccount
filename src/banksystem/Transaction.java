@@ -3,16 +3,13 @@ package banksystem;
 
 public abstract class Transaction extends Thread{
 
-    private User user;
-
     private Account account;
 
     private long id;
 
     private String log;
 
-    public Transaction(User newUser, Account newAccount){
-        this.user = newUser;
+    public Transaction(Account newAccount){
         this.account = newAccount;
         this.id = (long)(Math.random() * 10) + 1;
     }
@@ -22,9 +19,6 @@ public abstract class Transaction extends Thread{
         System.out.println("Transaction log: " + this.getLog());
     }
 
-    public User getUser(){
-        return this.user;
-    }
 
     public Account getAccount(){
         return this.account;

@@ -7,8 +7,8 @@ package banksystem;
 
 public class BalanceInquiry extends Transaction{
     
-    public BalanceInquiry(User newUser, Account newAccount){
-        super(newUser, newAccount);
+    public BalanceInquiry(Account newAccount){
+        super(newAccount);
     }
     
     public void run(){

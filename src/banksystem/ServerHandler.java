@@ -44,7 +44,7 @@ public class ServerHandler extends Thread {
                 //Account a = findAccount(accountNumber);
                 //Temporary fake account:
                 Account a = new Account(accountNumber, "1111");
-                User u = new User("name");
+                
                 a.addBalance(100);
                 char specifier = message.charAt(5);
                 
@@ -55,14 +55,14 @@ public class ServerHandler extends Thread {
                 } else if(specifier == '1'){ //If Deposit
                     
                     amount = Double.parseDouble(message.substring(7, message.length()));
-                    t = new Deposit(u, a, amount);
+                    t = new Deposit(a, amount);
                     t.start();
                     output.writeUTF("Deposit Successful. New balance: " + a.getBalance());
                     
                 } else if(specifier == '2'){ //If Withdrawal
                     
                     amount = Double.parseDouble(message.substring(7, message.length()));
-                    t = new Withdrawal(u, a, amount);
+                    t = new Withdrawal(a, amount);
                     t.start();
                     output.writeUTF("Withdrawal Successful. New balance: " + a.getBalance());
                     
@@ -70,7 +70,7 @@ public class ServerHandler extends Thread {
                     
                     String newAccount = message.substring(7, 10);
                     amount = Double.parseDouble(message.substring(12, message.length()));
-                    t = new Transfer(u, a, amount, newAccount);
+                    t = new Transfer(a, amount, newAccount);
                     t.start();
                     output.writeUTF("Transfer Successful");
                     

@@ -7,8 +7,8 @@ public class Transfer extends Transaction{
     
     private String receivingAccount;
     
-    public Transfer(User newUser, Account newAccount, double newTAmount, String rAccount){
-        super(newUser, newAccount);
+    public Transfer(Account newAccount, double newTAmount, String rAccount){
+        super(newAccount);
         this.tAmount = newTAmount;
         this.receivingAccount = rAccount;
     }
@@ -27,7 +27,7 @@ public class Transfer extends Transaction{
         else{//If there are enough funds to be withdrawn
             curAccount.subtractBalance(amount);
             //curAccount.setBalance(startingBal - amount);
-            this.setLog("$" + amount + " transferred from account " + curId + " to account number " + receivingAccnt + " by user " + this.getUser().getId() +". Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
+            this.setLog("$" + amount + " transferred from account " + curId + " to account number " + receivingAccnt + " by user ______. Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
             this.close();
         }
     }
