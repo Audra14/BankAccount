@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class AccountList {
     
     private static AccountList singleton = new AccountList();
-    public static ArrayList<Account> list;
+    public static Accounts accounts;
     
     private AccountList(){
         importList();
@@ -47,16 +47,17 @@ public class AccountList {
     }
     
     public static void makeList(){ //called to make a new List if one doesn't exist yet, or write the current list to a file if it does.
-        if(list == null){
-            list = new ArrayList<Account>();
+        if(accounts == null){
+            accounts = new Accounts();
             System.out.println("New List made.");
         }
         else{
             System.out.println("Saving data");
+            
             try {
                 FileOutputStream fileOut = new FileOutputStream("src/accountlist.ser");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                out.writeObject(list);
+                out.writeObject(accounts);
                 out.close();
                 fileOut.close();
                 System.out.println("Serialized data is saved in src/accountlist.ser");
