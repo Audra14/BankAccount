@@ -13,7 +13,7 @@ public class BankSystem {
     
     public static void main(String[] args) throws IOException {
         
-
+        AccountList list = AccountList.getAccountList();
         System.out.println("The bank server is running.");
         ServerSocket listener = new ServerSocket(PORT);
         try {
