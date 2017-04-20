@@ -68,6 +68,7 @@ public class ServerHandler extends Thread {
                     
                     amount = Double.parseDouble(message.substring(7, message.length()));
                     t = new Deposit(a, amount);
+                    t.start();
                     try{
                         t.join();
                     }catch(InterruptedException e){
@@ -80,6 +81,7 @@ public class ServerHandler extends Thread {
                     
                     amount = Double.parseDouble(message.substring(7, message.length()));
                     t = new Withdrawal(a, amount);
+                    t.start();
                     try{
                         t.join();
                     }catch(InterruptedException e){
@@ -93,6 +95,7 @@ public class ServerHandler extends Thread {
                     Account newAccount = new Account(message.substring(7, 10));
                     amount = Double.parseDouble(message.substring(12, message.length()));
                     t = new Transfer(a, amount, newAccount);
+                    t.start();
                     try{
                         t.join();
                     }catch(InterruptedException e){
