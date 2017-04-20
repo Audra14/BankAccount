@@ -38,10 +38,10 @@ public class BankSystem {
         Account a3 = new Account("3333");
         a3.addBalance(300);
         if(list.accounts.list.size() < 1){
-          list.accounts.list.add(a1);
-        list.accounts.list.add(a2);
-        list.accounts.list.add(a3);
-        list.makeList();  
+            list.accounts.list.add(a1);
+            list.accounts.list.add(a2);
+            list.accounts.list.add(a3);
+            list.makeList();  
         }
     }
 
