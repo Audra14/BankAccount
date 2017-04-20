@@ -50,12 +50,11 @@ public class ServerHandler extends Thread {
                 
                 String message = input.readUTF();
                 System.out.println(message);
-                String accountNumber = message.substring(0, 3);
+                String accountNumber = message.substring(0, 4);
                 double amount;
                 Transaction t;
                 Account a = this.list.accounts.getAccount(accountNumber);
                 
-                a.addBalance(100);
                 char specifier = message.charAt(5);
                 
                 if(specifier == '0'){ //If Balance
