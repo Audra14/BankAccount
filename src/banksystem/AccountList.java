@@ -28,6 +28,7 @@ public class AccountList {
     }
     
     private void importList(){ //called when class is compiled to import the list if the data is saved, or call makeList() if it isn't yet.
+        System.out.println("Importing...");
         Accounts newList = null;
       try {
          FileInputStream fileIn = new FileInputStream("src/accountlist.ser");
