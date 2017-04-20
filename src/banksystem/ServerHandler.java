@@ -72,7 +72,7 @@ public class ServerHandler extends Thread {
                     }catch(InterruptedException e){
                         e.printStackTrace();
                     }
-                    output.writeUTF("Deposit Successful. New balance: " + a.getBalance());
+                    output.writeUTF(t.getLog());
                     this.list.makeList();
                     
                 } else if(specifier == '2'){ //If Withdrawal
@@ -85,7 +85,7 @@ public class ServerHandler extends Thread {
                     }catch(InterruptedException e){
                         e.printStackTrace();
                     }
-                    output.writeUTF("Withdrawal Successful. New balance: " + a.getBalance());
+                    output.writeUTF(t.getLog());
                     this.list.makeList();
                     
                 } else { //If transfer
@@ -99,7 +99,7 @@ public class ServerHandler extends Thread {
                     }catch(InterruptedException e){
                         e.printStackTrace();
                     }
-                    output.writeUTF("Transfer Successful");
+                    output.writeUTF(t.getLog());
                     this.list.makeList();
                     
                 }
