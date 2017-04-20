@@ -15,7 +15,7 @@ public class BankSystem {
     public static void main(String[] args) throws IOException {
         
         AccountList list = new AccountList();
-        //makeDummyData(list);
+        makeDummyData(list);
         System.out.println("The bank server is running.");
         ServerSocket listener = new ServerSocket(PORT);
         try {
