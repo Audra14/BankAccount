@@ -53,9 +53,7 @@ public class ServerHandler extends Thread {
                 String accountNumber = message.substring(0, 3);
                 double amount;
                 Transaction t;
-                //Account a = findAccount(accountNumber);
-                //Temporary fake account:
-                Account a = new Account(accountNumber);
+                Account a = this.list.accounts.getAccount(accountNumber);
                 
                 a.addBalance(100);
                 char specifier = message.charAt(5);
