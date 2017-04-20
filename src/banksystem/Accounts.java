@@ -13,4 +13,13 @@ public class Accounts implements Serializable{
     public Accounts(){
         list = new ArrayList<Account>();
     }
+    
+    public Account getAccount(String accountNumber){
+        for(Account a : list){
+            if(a.getAccountNumber().equals(accountNumber)){
+                return a;
+            }
+        }
+        return null;
+    }
 }
