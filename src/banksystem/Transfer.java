@@ -26,8 +26,9 @@ public class Transfer extends Transaction{
         }
         else{//If there are enough funds to be withdrawn
             curAccount.subtractBalance(amount);
+            receivingAccount.addBalance(amount);
             //curAccount.setBalance(startingBal - amount);
-            this.setLog("$" + amount + " transferred from account " + curId + " to account number " + receivingAccnt + " by user ______. Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
+            this.setLog("$" + amount + " transferred from account " + curId + " to account number " + receivingAccnt.getAccountNumber() + " by user ______. Starting balance: $" + startingBal + ". New Balance: $" + curAccount.getBalance());
             this.close();
         }
     }
