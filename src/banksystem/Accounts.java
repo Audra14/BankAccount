@@ -15,7 +15,9 @@ public class Accounts implements Serializable{
     }
     
     public Account getAccount(String accountNumber){
+        System.out.println(accountNumber);
         for(Account a : list){
+            System.out.println("Account number: " + a.getAccountNumber());
             if(a.getAccountNumber().equals(accountNumber)){
                 return a;
             }
