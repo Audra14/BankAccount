@@ -89,7 +89,7 @@ public class ServerHandler extends Thread {
                     
                 } else { //If transfer
                     
-                    Account newAccount = new Account(message.substring(7, 10));
+                    Account newAccount = list.accounts.getAccount(message.substring(7, 11));
                     amount = Double.parseDouble(message.substring(12, message.length()));
                     t = new Transfer(a, amount, newAccount);
                     t.start();
