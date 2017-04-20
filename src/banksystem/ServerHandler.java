@@ -22,7 +22,6 @@ public class ServerHandler extends Thread {
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
-    
     private AccountList list;
     
     public ServerHandler(Socket socket, AccountList list) {
@@ -71,6 +70,7 @@ public class ServerHandler extends Thread {
                     t = new Deposit(a, amount);
                     t.start();
                     output.writeUTF("Deposit Successful. New balance: " + a.getBalance());
+                    this.list.makeList();
                     
                 } else if(specifier == '2'){ //If Withdrawal
                     
@@ -78,6 +78,7 @@ public class ServerHandler extends Thread {
                     t = new Withdrawal(a, amount);
                     t.start();
                     output.writeUTF("Withdrawal Successful. New balance: " + a.getBalance());
+                    this.list.makeList();
                     
                 } else { //If transfer
                     
@@ -86,6 +87,7 @@ public class ServerHandler extends Thread {
                     t = new Transfer(a, amount, newAccount);
                     t.start();
                     output.writeUTF("Transfer Successful");
+                    this.list.makeList();
                     
                 }
             }
